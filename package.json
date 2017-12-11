@@ -1,0 +1,8 @@
+{
+  "name": "tiny-pub-sub",
+  "version": "0.0.1",
+  "main": "TinyPubSub.js",
+  "repository": "git@github.com:benjvmin/TinyPubSub.git",
+  "author": "",
+  "license": "MIT"
+}
