@@ -4,5 +4,8 @@
   "main": "TinyPubSub.js",
   "repository": "git@github.com:benjvmin/TinyPubSub.git",
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
 }
