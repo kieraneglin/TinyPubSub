@@ -6,6 +6,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "mocha": "^4.0.1"
   }
 }
