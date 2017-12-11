@@ -28,4 +28,3 @@ A small Publish/Subscribe library for project use! (Still testing);
 * Extremely Tiny (733 bytes minified!);
 
 *  Zero Dependencies
-
