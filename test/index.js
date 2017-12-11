@@ -1,6 +1,6 @@
 const assert = require('chai').assert;
 
-describe('test', () => {
+describe('Events', () => {
   it('test', () => {
     assert(true)
   })

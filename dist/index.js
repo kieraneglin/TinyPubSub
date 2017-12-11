@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Events = void 0;
+exports.default = void 0;
 
 /*
 
@@ -14,7 +14,7 @@ DO WHATEVA YOU WANT W/ IT BRO
 
 */
 //Events Object
-var Events = {
+var _default = {
   //All Events will be added to the Handlers object, to see every function added, call Events.list();
   handlers: {},
   //Add Event ---> Accepts Event Name & A callback function as parameters
@@ -78,4 +78,4 @@ var Events = {
     }
   }
 };
-exports.Events = Events;
+exports.default = _default;
