@@ -5,8 +5,14 @@
   "repository": "git@github.com:benjvmin/TinyPubSub.git",
   "author": "",
   "license": "MIT",
+  "scripts": {
+    "babel": "./node_modules/.bin/babel src --out-dir dist",
+    "babel-watch": "./node_modules/.bin/babel src --watch --out-dir dist"
+  },
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "@babel/cli": "^7.0.0-beta.34",
+    "@babel/core": "^7.0.0-beta.34",
+    "@babel/preset-env": "^7.0.0-beta.34",
     "mocha": "^4.0.1"
   }
 }
