@@ -17,7 +17,11 @@ var _default = {
    * @returns {boolean} Whether the event was successfully added
    */
   add(name, callback) {
-    //If the Event does not exist in the handlers object, create it
+    if (typeof callback != 'function') {
+      return false;
+    } //If the Event does not exist in the handlers object, create it
+
+
     this.handlers[name] = this.handlers[name] || [];
 
     if (this.handlers[name].includes(callback)) {

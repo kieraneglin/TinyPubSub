@@ -2,6 +2,7 @@ const chai = require('chai')
 const sinon = require('sinon')
 const assert = chai.assert
 const tps = require('./../dist/index').default
+const blankFn = () => {}
 
 sinon.assert.expose(chai.assert, { prefix: '' })
 
@@ -15,10 +16,10 @@ describe('Events', () => {
 
   describe('#add', () => {
     it('Creates a new event if it doesnt exist', () => {
-      tps.add('newEvent', 123)
+      tps.add('newEvent', blankFn)
 
       assert.isArray(tps.handlers['newEvent'])
-      assert.deepEqual([123], tps.handlers['newEvent'])
+      assert.deepEqual([blankFn], tps.handlers['newEvent'])
     })
     it('Doesnt overwrite if even exists', () => {
       tps.add('newEvent', 123)
@@ -34,7 +35,7 @@ describe('Events', () => {
       assert.equal(1, tps.handlers['newEvent'].length)
     })
     it('Returns true if an event was sucessfully added', () => {
-      let result = tps.add('newEvent')
+      let result = tps.add('newEvent', blankFn)
 
       assert.isTrue(result)
     })
@@ -50,15 +51,15 @@ describe('Events', () => {
 
   describe('#remove', () => {
     it('Removes an event function if it exists', () => {
-      tps.add('newEvent', 'fname')
-      tps.remove('newEvent', 'fname')
+      tps.add('newEvent', blankFn)
+      tps.remove('newEvent', blankFn)
 
       assert.deepEqual([], tps.handlers['newEvent'])      
     })
     it('Returns true if event function was removed', () => {
-      tps.add('newEvent', 'fname')
+      tps.add('newEvent', blankFn)
 
-      let result = tps.remove('newEvent', 'fname')
+      let result = tps.remove('newEvent', blankFn)
 
       assert.isTrue(result)
     })
