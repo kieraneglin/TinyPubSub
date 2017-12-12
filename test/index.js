@@ -95,12 +95,12 @@ describe('Events', () => {
       assert.isTrue(fn1.called)
       assert.isTrue(fn2.called)
     })
-    it('Returns true if events ran', () => {
+    it('Returns false if event isnt found', () => {
       let result = tps.emit('nonExistentEvent')
       
       assert.isFalse(result)
     })
-    it('Returns false if event isnt found', () => {
+    it('Returns true if events ran', () => {
       tps.add('newEvent', () => {})
 
       let result = tps.emit('newEvent')
