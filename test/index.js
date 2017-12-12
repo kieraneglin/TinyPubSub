@@ -33,6 +33,19 @@ describe('Events', () => {
 
       assert.equal(1, tps.handlers['newEvent'].length)
     })
+    it('Returns true if an event was sucessfully added', () => {
+      let result = tps.add('newEvent')
+
+      assert.isTrue(result)
+    })
+    it('Returns false if an event was not sucessfully added', () => {
+      let fn = () => {}
+      tps.add('newEvent', fn)
+
+      let result = tps.add('newEvent', fn)
+
+      assert.isFalse(result)
+    })
   })
 
   describe('#remove', () => {
