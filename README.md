@@ -4,7 +4,7 @@ A small Publish/Subscribe library for project use! (Still testing);
 
 #### Import the Events Object
 
-`import { Events } from "./modules/TinyPubSub.js";`
+`import Events from "tiny-pubsub";`
 
 #### Add Events:
 
@@ -16,15 +16,15 @@ A small Publish/Subscribe library for project use! (Still testing);
 
 #### Trigger Events:
 
-`Events.emit(someFunctionToTrigger, someDataToPass)`
+`Events.emit("Event Name", ...dataToPass)`
 
 #### List Events:
 
-`Events.List()`
+`Events.list()`
 
 ### Features:
 * Throws an error if you try to Emit a function that does not exist, easier for debugging purposes. 
 
-* Extremely Tiny (733 bytes minified!);
+* Extremely Tiny (519 bytes minified!);
 
-*  Zero Dependencies
+* Zero Dependencies
