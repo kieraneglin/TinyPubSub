@@ -4,9 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-//Events Object
 var _default = {
-  //All Events will be added to the Handlers object, to see every function added, call Events.list();
+  // Global events list
   handlers: {},
 
   //Add Event ---> Accepts Event Name & A callback function as parameters
