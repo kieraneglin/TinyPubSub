@@ -53,12 +53,16 @@ var _default = {
    * @param {...any} data - Data to be passed to each function
    * @returns {boolean} Whether the functions were successfully called
    */
-  emit(name, ...data) {
-    let functionList = this.handlers[name];
+  emit(name) {
+    for (var _len = arguments.length, data = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      data[_key - 1] = arguments[_key];
+    }
+
+    var functionList = this.handlers[name];
 
     if (functionList) {
-      functionList.forEach(fn => {
-        fn(...data);
+      functionList.forEach(function (fn) {
+        fn.apply(void 0, data);
       });
       return true;
     }
