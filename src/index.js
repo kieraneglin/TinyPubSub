@@ -27,38 +27,21 @@ export default {
 
   //Triggers the Event, uses the rest/spread operater to pass an unlimited number of parameters
   emit(name, ...data) {
-    //Keep an index that is incremented for each function that does not match the Event emitted (See below)
-    let index = 0
+    let functionList = this.handlers[name]
+    
+    if(functionList) {
+      functionList.forEach((fn) => {
+        fn(...data)
+      })
 
-    //Length of handlers Object
-    let length = Object.keys(this.handlers).length
-
-    //Loop through handlers Object and call every function that matches the Event emitted
-    for (let eventName in this.handlers) {
-      if (this.handlers[name] && name === eventName) {
-        this.handlers[name].forEach(function(fn) {
-          fn(...data)
-        })
-      } else {
-        index++
-      }
+      return true
     }
 
-    // If the index is equal to or greater than the length of the Event handlers object, the Event did not fire.
-    // This throws an error for debugging purposes, you can edit this if you don't it want to throw an error.
-    if (index >= length) {
-      throw new Error(
-        'Specified event in the Event handlers object did not fire. Check the name of the event you are calling.'
-      )
-    }
+    return false
   },
 
   // Spit out every Event inside the handlers object.
   list() {
-    if (console.table) {
-      console.table(this.handlers)
-    } else {
-      console.log(this.handlers)
-    }
+    return this.handlers
   }
 }

@@ -44,18 +44,20 @@ describe('Events', () => {
     })
     it('Returns true if event function was removed', () => {
       tps.add('newEvent', 'fname')
+
       let result = tps.remove('newEvent', 'fname')
 
       assert.isTrue(result)
     })
     it('Returns false if an event function doesnt exist', () => {
       tps.add('newEvent')
-      let result = tps.remove('newEvent', 'newName')
+
+      let result = tps.remove('newEvent', 'nonExistentFn')
 
       assert.isFalse(result)
     })
     it('Returns false if an event doesnt exist', () => {
-      let result = tps.remove('nonexistentEvent', 'newName')
+      let result = tps.remove('nonExistentEvent', 'nonExistentFn')
 
       assert.isFalse(result)
     })
@@ -81,14 +83,25 @@ describe('Events', () => {
       assert.isTrue(fn1.called)
       assert.isTrue(fn2.called)
     })
+    it('Returns true if events ran', () => {
+      let result = tps.emit('nonExistentEvent')
+      
+      assert.isFalse(result)
+    })
     it('Returns false if event isnt found', () => {
-      // unimplemented
+      tps.add('newEvent', () => {})
+
+      let result = tps.emit('newEvent')
+      
+      assert.isTrue(result)
     })
   })
 
   describe('#list', () => {
     it('Returns the handlers object', () => {
-      // unimplemented
+      tps.add('newEvent')
+
+      assert.deepEqual(tps.handlers, tps.list())
     })
   })
 })
