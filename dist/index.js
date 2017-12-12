@@ -12,13 +12,11 @@ var _default = {
   //Add Event ---> Accepts Event Name & A callback function as parameters
   add(event, callbackFn) {
     //If the Event does not exist in the handlers object, create it
-    this.handlers[event] = this.handlers[event] || []; // If the event you are adding already exists, console log the added function already exists
+    this.handlers[event] = this.handlers[event] || [];
 
     if (this.handlers[event].includes(callbackFn)) {
-      console.log('Function Already exists!');
-      return;
-    } // Add the callback function to the event
-
+      return false;
+    }
 
     this.handlers[event].push(callbackFn);
   },

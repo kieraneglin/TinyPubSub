@@ -8,13 +8,10 @@ export default {
     //If the Event does not exist in the handlers object, create it
     this.handlers[event] = this.handlers[event] || []
 
-    // If the event you are adding already exists, console log the added function already exists
     if (this.handlers[event].includes(callbackFn)) {
-      console.log('Function Already exists!')
-      return
+      return false
     }
 
-    // Add the callback function to the event
     this.handlers[event].push(callbackFn)
   },
 
