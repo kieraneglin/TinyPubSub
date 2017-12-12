@@ -21,16 +21,15 @@ describe('Events', () => {
       assert.isArray(tps.handlers['newEvent'])
       assert.deepEqual([blankFn], tps.handlers['newEvent'])
     })
-    it('Doesnt overwrite if even exists', () => {
-      tps.add('newEvent', 123)
-      tps.add('newEvent', 234)
+    it('Doesnt overwrite if event exists', () => {
+      tps.add('newEvent', blankFn)
+      tps.add('newEvent', blankFn)
 
-      assert.notDeepEqual([234], tps.handlers['newEvent'])
+      assert.deepEqual([blankFn], tps.handlers['newEvent'])
     })
     it('Doesnt overwrite if event functions exists', () => {
-      let fn = () => {}
-      tps.add('newEvent', fn)
-      tps.add('newEvent', fn)
+      tps.add('newEvent', blankFn)
+      tps.add('newEvent', blankFn)
 
       assert.equal(1, tps.handlers['newEvent'].length)
     })
@@ -40,10 +39,9 @@ describe('Events', () => {
       assert.isTrue(result)
     })
     it('Returns false if an event was not sucessfully added', () => {
-      let fn = () => {}
-      tps.add('newEvent', fn)
+      tps.add('newEvent', blankFn)
 
-      let result = tps.add('newEvent', fn)
+      let result = tps.add('newEvent', blankFn)
 
       assert.isFalse(result)
     })

@@ -53,7 +53,7 @@ export default {
     let functionList = this.handlers[name]
     
     if(functionList) {
-      functionList.forEach((fn) => {
+      functionList.forEach(fn => {
         fn(...data)
       })
 
