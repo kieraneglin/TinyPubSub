@@ -18,10 +18,11 @@ export default {
   remove(event, fnName) {
     if (this.handlers[event] && this.handlers[event].includes(fnName)) {
       this.handlers[event].splice(this.handlers[event].indexOf(fnName), 1)
-    } else {
-      // If you are trying to remove and event that does not exist, it will let you know via console.log
-      console.log('No Matching Functions Exist to remove!')
+
+      return true
     }
+
+    return false
   },
 
   //Triggers the Event, uses the rest/spread operater to pass an unlimited number of parameters
