@@ -15,11 +15,18 @@ describe('Events', () => {
 
   describe('#add', () => {
     it('Creates a new event if it doesnt exist', () => {
-      tps.add('newEvent')
+      tps.add('newEvent', 123)
 
       assert.isArray(tps.handlers['newEvent'])
+      assert.deepEqual([123], tps.handlers['newEvent'])
     })
-    it('Doesnt overwrite if event exists', () => {
+    it('Doesnt overwrite if even exists', () => {
+      tps.add('newEvent', 123)
+      tps.add('newEvent', 234)
+
+      assert.notDeepEqual([234], tps.handlers['newEvent'])
+    })
+    it('Doesnt overwrite if event functions exists', () => {
       let fn = () => {}
       tps.add('newEvent', fn)
       tps.add('newEvent', fn)
