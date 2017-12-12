@@ -1,12 +1,3 @@
-/*
-
-TINY PUB SUB
-BY: BENJAMIN TAYLOR
-
-DO WHATEVA YOU WANT W/ IT BRO
-
-*/
-
 //Events Object
 export default {
   //All Events will be added to the Handlers object, to see every function added, call Events.list();
